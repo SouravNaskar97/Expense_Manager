@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+ 
+<head>
+	<meta charset="UTF-8" />
+	<title>about page</title>
+</head>
+<body>
+	<section class="banner-dashboard align-right">
+	 <div class="container ">
+         <div class="row">
+           <div class="col-md-12">
+              <h1 class="text-center mt-5" style="color:white">$ Expenses $</h1>
+              <table class="table table-striped table-primary">
+		<div class="alert alert-success" role="alert" th:text="${success}" th:if="${success}"></div>
+		<thead class="thead-dark" >
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Cost</th>
+      <th scope="col">Date & Time</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+   <tbody>
+	   <tr th:each="e:${expenses}">	
+      <th scope="row" th:text="${'SEM2023'+e.eId}"></th>
+      <td th:text="${e.type}"></td>
+      <td th:text="${e.description}"></td>
+      <td class="font-weight-bold" ><span th:utext="${'&#8377'}" ></span></b><span th:text="${e.cost}"></span></td>	 
+        <td th:text="${e.timestamp}"></td>
+       
+      <td><a href="#" th:onclick="|deleteExpense(${e.eId})|" ><i class="fa fa-trash-o" style="font-size:35px;color:red"></i></a>
+      
+      
+      <a th:href="@{'/user/update-expense/'+${e.eId}}"><i class="fa fa-edit" style="font-size:30px;color:mediumblue"></i></a> 
+      
+     
+      </td>
+      </tr>
+      </tbody>
+      </table>
+       <div class="container text-center">
+                    <a href="add-expense"
+                       class="btn btn-outline-success">Add Expense</a>
+                     
+                   
+                   </div>
+                   </div>
+                   </div>
+                   </div>
+      </section>
+</body>
+</html>
+
+
+
+
+
+
+
+

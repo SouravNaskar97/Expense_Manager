@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>about page</title>
+</head>
+<body>
+	<section class="banner-add ">
+	
+   <div class="container ">
+         <div class="row">
+           <div class="col-md-6 offset-md-3">
+              <h1 class="text-center mt-5"> Add Your Expense Details !</h1>
+              <form  action="#"  th:action="@{/user/handle-expense}"   method="post">
+                 
+                 <div class="form-group">
+                   <label for="name">Type</label><input type="text" required
+                   class="form-control" id="name" aria-describedby="emailHelp" name="type"
+                   placeholder="Enter the espense type here">
+                 </div>
+                  
+                  <div class="form-group">
+                   <label for="description"> Description</label>
+                   <textarea class="form-control" name="description" id="description" 
+                    rows="5" placeholder="Enter the expense Description"></textarea>
+                   </div>
+                   
+                   <div class="form-group">
+                   <label for="price">Cost</label><input type="text" required
+                   class="form-control" id="price"  name="cost"
+                   placeholder="Enter cost">
+                 </div>
+                 
+                   
+                   <div class="container text-center">
+                    <a th:onclick="history.back()"
+                       class="btn btn-danger">Back</a>
+                    <button type="submit" class="btn btn-success">Add</button>   
+                   
+                   </div>
+                   
+                   </form>
+               </div>
+             </div>    
+            </div>  
+           
+      </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
